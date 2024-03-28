@@ -1,26 +1,17 @@
-import React, {memo, useState, useSyncExternalStore} from 'react';
-import Todos from './Todos';
-import Memo from './Memo';
-import Count from './Count';
-import { useEffect } from 'react';
+import React from "react";
+import Todo from "./Todo";
+import Count from "./Count";
+import Memo from "./Memo";
 
-let App = () => {
-    useEffect(() => {
-    }, [count, memo, todos])
-
-    let [todos, setTodos] = useState(['New Todo']);
-    let [memo, setMemo] = useState(['HTML', "CSSS3"]);
-    let [count, setCount] = useState(1000000000);
-
-    return (
-        <div id="main">
-            <h1>React.useMEMo</h1>
-            <Todos set={setTodos} arr = {todos} />
-            <Count set={setCount} number = {number} />
-            <h1>Expensive Calculation</h1>
-            <Memo set={setMemo} arr = {memo} />
+const App = ()=>{
+    return(
+        <div id='main'>
+            <h1>React.useMemo</h1>
+            <Todo />
+            <Count />
+            <Memo />
         </div>
     )
 }
 
-export default App
+export default App;

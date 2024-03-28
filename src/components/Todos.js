@@ -1,25 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 
-let Todos = (props) => {
-    function adddata() {
-        props.set([...props.arr, 'New Todo'])
-    }
+const Todo = ()=>{
+    let [todos, setTodos] = useState(['New Todo']);
 
-    return (
+    return(
         <div>
-            <div className="count">
-                <h1>My Todos</h1>
-                {
-                    props.arr.map((element,index) => {
-                        return(
-                            <div id={'todo-'+index}>{element}</div>
-                        )
-                    })
-                }
-            </div>
-            <buttton onclick={adddata} id='add-todo-btn'>Add Todo</buttton>
+            <h2>My todos</h2>
+            {
+                todos &&
+                todos.map((todo, ind)=>(
+                    <p id={`todo-${ind}`}>{todo}</p>
+                ))
+            }
+            <button id='add-todo-btn' onClick={()=>{setTodos([...todos, 'New todo'])}}>Add Todo</button>
+            <br/>
+            <br/>
+            <hr />
         </div>
     )
 }
 
-export default Todos
+export default Todo;
